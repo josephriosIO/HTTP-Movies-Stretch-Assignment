@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 
+// <input
+//   onChange={this.handleChanges}
+//   value={stars}
+//   name="stars"
+//   placeholder="enter the actors"
+// />
+
 class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -33,15 +40,13 @@ class AddMovie extends Component {
       movie: {
         title: "",
         director: "",
-        metascore: "",
-        stars: [],
-        title: ""
+        metascore: ""
       }
     });
   };
 
   render() {
-    const { director, metascore, stars, title } = this.state.movie;
+    const { director, metascore, title } = this.state.movie;
     return (
       <div>
         <h1>add movie</h1>
@@ -67,12 +72,7 @@ class AddMovie extends Component {
             placeholder="enter metascore"
           />
           <div className="baseline" />
-          <input
-            onChange={this.handleChanges}
-            value={stars}
-            name="stars"
-            placeholder="enter the actors"
-          />
+
           <div className="baseline" />
           <button className="md-button form-button" type="submit">
             add movie

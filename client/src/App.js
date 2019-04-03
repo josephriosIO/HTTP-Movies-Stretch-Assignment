@@ -38,14 +38,22 @@ export default class App extends Component {
   add = movie => {
     axios
       .post("http://localhost:5000/api/movies", movie)
-      .then(res => this.setState({ movies: res.data }));
+      .then(res => this.setState({ movies: res.data }))
+      .catch(err => {
+        console.log(err);
+      });
+    this.props.history.push("/");
   };
 
   render() {
     return (
       <div>
         <SavedList list={this.state.savedList} />
-        <Route exact path="/" component={MovieList} />
+        <Route
+          exact
+          path="/"
+          render={props => <MovieList {...props} movies={this.state.movies} />}
+        />
         <Route
           path="/movies/:id"
           render={props => {
