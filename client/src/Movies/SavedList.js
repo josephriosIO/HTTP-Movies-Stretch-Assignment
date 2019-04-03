@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { NavLink, Link } from "react-router-dom";
 export default class SavedList extends Component {
   constructor(props) {
     super(props);
@@ -20,8 +20,11 @@ export default class SavedList extends Component {
             </NavLink>
           );
         })}
-        <div className="home-button">
+        <div className="home-button" style={{ textAlign: "center" }}>
           <Link to="/">Home</Link>
+          <div className="home-button">
+            <Link to="/movie/add">Add Movie</Link>
+          </div>
         </div>
       </div>
     );
