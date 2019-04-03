@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
