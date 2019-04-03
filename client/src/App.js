@@ -10,7 +10,6 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
       savedList: [],
       movie: {
         title: "",
@@ -19,13 +18,6 @@ export default class App extends Component {
         stars: []
       }
     };
-  }
-
-  componentDidMount() {
-    // fill me in with an HTTP Request to `localhost:5000/api/movies`
-    axios
-      .get(`http://localhost:5000/api/movies`)
-      .then(res => this.setState({ movies: res.data }));
   }
 
   addToSavedList = movie => {
@@ -38,11 +30,10 @@ export default class App extends Component {
   add = movie => {
     axios
       .post("http://localhost:5000/api/movies", movie)
-      .then(res => this.setState({ movies: res.data }))
+      .then(res => this.props.history.push("/"))
       .catch(err => {
         console.log(err);
       });
-    this.props.history.push("/");
   };
 
   render() {
